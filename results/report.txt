@@ -1,0 +1,48 @@
+CELL: LG M50 21700, 5 Ah, parameter set Chen2020
+PACK: 96s46p = 4416 cells
+
+MODEL HIERARCHY (isothermal 25 C): voltage error vs the DFN model
+C-rate model  capacity [Ah]  RMS error [mV]  run time [s]
+   0.5   SPM          5.022            25.2          0.07
+   0.5  SPMe          5.015            83.3          0.14
+   0.5   DFN          5.015             0.0          0.18
+     1   SPM          4.955            55.9          0.05
+     1  SPMe          4.939             5.4          0.14
+     1   DFN          4.938             0.0          0.18
+   1.5   SPM          4.890            96.2          0.05
+   1.5  SPMe          4.856            10.7          0.14
+   1.5   DFN          4.852             0.0          0.17
+     2   SPM          4.822           158.0          0.05
+     2  SPMe          4.757            22.7          0.14
+     2   DFN          4.731             0.0          0.18
+
+RATE CAPABILITY AND HEATING (DFN with lumped thermal model, ambient 25 C)
+cooling              C-rate  capacity [Ah]  energy [Wh]  T max [C]
+Natural convection      0.5          5.018        18.09       29.6
+Natural convection        1          4.947        17.42       38.8
+Natural convection      1.5          4.874        16.78       51.6
+Natural convection        2          4.777        16.05       69.4
+Forced air              0.5          5.016        18.06       26.4
+Forced air                1          4.941        17.34       29.3
+Forced air              1.5          4.860        16.64       33.8
+Forced air                2          4.751        15.85       41.1
+Liquid cooling          0.5          5.016        18.05       25.4
+Liquid cooling            1          4.939        17.31       26.2
+Liquid cooling          1.5          4.855        16.57       27.6
+Liquid cooling            2          4.737        15.73       29.9
+
+ENERGY BALANCE CHECK (2C, natural convection)
+  electrical loss I(OCV_surface - V) = 4290 J vs ohmic + irreversible heat = 4348 J (+1.4%)
+  with the bulk OCV the loss is 7041 J: the extra 2751 J is energy stored in the lithium concentration gradients inside the particles, not yet released as heat
+  Coulomb counting: integral of current = 4.7772 Ah vs reported capacity 4.7772 Ah
+
+ELECTRIC VEHICLE: range at constant speed (SPMe with lumped thermal, natural convection)
+  vehicle 1900 kg, Cd 0.28, A 2.3 m2, Crr 0.009, pack 96s46p
+speed [km/h]  pack power [kW]  cell power [W]  range [km]  range Cd -10%   gain
+          80              9.4            2.12         706            744   5.4%
+         100             14.9            3.37         551            588   6.7%
+         120             22.6            5.12         431            464   7.8%
+         140             33.0            7.47         340            369   8.6%
+
+MIXED CYCLE: 39.3 km per 30-minute cycle, average 79 km/h, peak pack power 34 kW, peak regen -11 kW
+  range 471 km (6.0 h), max cell temperature 26.1 C
